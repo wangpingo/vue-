@@ -78,13 +78,210 @@
 也就是遇见<就createElement，遇见｛｝就当是js语法。我个人感觉jsx有点乱，我不太喜欢
 * _Server Render_ 还对Server Render做了支持，这一点没有在业务中使用，不做评价
 
-### 第二天
+### 第二天 什么也不做就弄懂生命周期
 
-#### 首先我们看一下vue的生命周期
-![Alt vue的生命周期](https://sfault-image.b0.upaiyun.com/301/696/3016967164-580822a19b29a_articlex)
+#### 首先我们看一下vue的生命周期 
+![Alt vue的生命周期](https://sfault-image.b0.upaiyun.com/301/696/3016967164-580822a19b29a_articlex) 
 
 #### 我刚一看到这个图，说实话是有点蒙逼的。但是这个图非常的重要
-&nbsp;&nbsp;眨一眼看上这不就是大学期间老师一弄总让画的流程图，既然是流程图就得从头讲起
-什么是生命周期：
-vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，初始化数据，编译模板，挂载dom，渲染
-更新-渲染
+&nbsp;&nbsp;眨一眼看上这不就是大学期间老师一弄总让画的流程图，既然是流程图就得从头讲起<br>
+什么是生命周期：<br>
+&nbsp;&nbsp;vue实例有一个完整的生命周期，也就是从开始创建，初始化数据，初始化数据，编译模板，挂载dom，渲染
+更新-渲染,通俗的说就是vue实例从创建到销毁的过程，就是生命周期<br>
+&nbsp;&nbsp;在vue整个生命周期中，它提供了一系列的事件，可以让我们在事件触发时注册js方法，让我们自己注册的js方法控制整个大局，这些方法的this直接指向vue实例,<br>
+1. new vue() 创建vue对象
+2. beforeCreate() ----创建vue实例前的钩子函数
+3. observe Data   ----开始监听data数据的变化
+4. Init events    ----初始化vue内部事件
+5. created()      ----实例创建完成之后的钩子函数
+6. 编译模板，把data对象里面的数据和vue语法写的模板编译成html
+7. 编译好的html替换掉el属性，所指向的dom对象替换对应html标签里面的内容
+8. beforeMount()  ----挂载开始前调用，相关的render函数首次被调用
+9. mounted() ----- 将编译好的html挂载到页面完成后执行的钩子函数，此时可以进行发送ajax请求获取数据的操作，进行数据初始化。注意：mounted()在整个实例生命内只执行一次
+10. beforeUpdated() -----数据更新时调用，发生在虚拟DOM重新渲染和打补丁之前。
+11.update() -----数据修改，重新渲染DOM之后调用改钩子。当钩子被调用时，DOM结构已经被更新，所以在钩子中可以执行依赖的DOM操作。
+12. beforeDestory() ----- 实例销毁前调用的钩子函数
+13. destoryed() ----- Vue实例销毁后，调用。
+
+### 开始 剖(pou) 析
+&nbsp;&nbsp;  首先啥是钩子，钩子干啥的。---> 那个你们钓过鱼没有，钓鱼用的就是钩子，鱼在水里游怎么才能捕获到它，要用鱼钩。vue里面钩子就是，vue有自己的运行机制，你要想捕获他运行时的状态只有通过他提供给你的钩子。<br>
+&nbsp;&nbsp;  流程图吗哪里最难懂，肯定是分叉的时候....
+1. has 'el' option 这里分叉了，这个叉小所以好懂。<br>&nbsp;&nbsp; &nbsp;&nbsp; 就是说有没有dom节点，没有dom节点 我就不能编译模板
+2. has 'template' option 我有dom了，开始编译模板，有'template'我就编译innerHtml，没有我就编译 outerHtml。 
+```html
+// ps 补充一下哈
+<div id="app">
+    <div id="child"></div>
+</div>
+var app = document.getElementById('app');
+app.innerHtml=  <div id="child"></div>
+app.outerHtml=<div id="app"><div id="child"></div></div>
+```
+3. Mounted 这里有个循环  这个简单，监听数据变化，一变化他就更新dom，更新完就渲染，然后再监听....就这样 <br> <strong>mounted钩子就执行一次</strong>
+
+#### 最近有点浮躁啊，生活总是那么的调皮。没办法，我去面壁去了....
+
+### 第三天
+&nbsp;&nbsp; 从github上下载了vue源码。我感觉vue代码优雅精辟，作者可能不屑提起这些东西，那么就让我来吧 :)
+#### 程序结构梳理
+
+vue.js 是一个非常典型的MVVM的程序结构，整个程序的上层大概分为
+1. 全局设计：包括全局接口，默认选项等
+2. vm实例设计: 包括接口设计(vm原型),实力初始化过程设计(vm构造函数)
+3. 这里大部分内容可以直接跟Vue.js的官方api[This link](http://vuejs.org/api/) has no title attribute.
+    <div>
+        整个实例化过程中，重中之重就是把数据(Model)和视图(View)建立起来关联关系。Vuejs 和诸多MVVM的思路类似，主要做了三件事：
+        <oL>
+            <li>通过observe对data进行监听，并且提供订阅某个数据项变化的能力</li>
+            <li>把template解析成一段document fragment(接口表示文档一部分或一段，他表示一个或多个临接的Document节点和他们所有的子孙节点。document fragment不属于文档树，继承的parentNode属性总是null),得到每一个directive所依赖的数据项和更新方法,比如v-text='message'依赖数据项this.$data.message,以及所依赖的视图更新方法node.textContent = this.$data.message。
+            </li>
+            <li>
+               通过watcher把上述两部分结合起来，即把directive中的数据依赖项订阅在对应的数据的observer上，这样当数据变化的时候，就会触发observe，进而触发对应的视图更新方法，最后达到模板关联的效果              
+            </li>
+        </ol
+    </div>
+4.vm 整个核心就是如何实现observe，directive，watcher这三样东西
+    ps（s首先介绍一下vue源码的目录结构）我们需要关心的是src下面的，test下面的是测试用例想看也可以看一下
+       1. compiler  模板编译部分
+       2. core 核心实现部分
+       3. platforms/web   web渲染部分
+       4. server  服务器渲染
+       5. shared/utils  基础工具
+      我们首先讲解一下defineProperty，vue就是通过它实现双向数据绑定。
+      ```
+      //几行代码看他怎么用
+      var a={}
+      Object.defineProperty(a,"b",{
+         value:123
+      })
+      code
+      ```
+      <em> 很简单接受三个参数，每一个都是必填项</em>
+      我们来解释一下传入的三个参数
+      1. 第一个参数：目标对象
+      2. 需要定义的属性或方法名字
+      3. 目标属性所拥有的特性 （descriptor）
+##### 我们主要介绍第三个参数很重要descriptor
+它有以下取值，我们先简单介绍一下，后面的例子我们在挨个介绍。
+
+1. value：属性的值。。。
+2. writable：如果为fasle，属性的值不能背写，只能为只读
+3. configable：总开关，一旦为fasle，不能设置其他属性的值
+4. enumerbale：枚举；是否能在intorater接口边遍历
+5. get 一会慢慢品
+6. set 一会慢慢品
+
+##### descripter 默认值
+我们再看看第一个例子
+``` javascript
+
+var a= {}
+Object.defineProperty(a,"b",{
+ value:123
+})
+console.log(a.b);//123
+```
+
+我们虽然只设置了value，别的值没设置，但是第一次可以理解为系统会帮我们自动设置上几个默认值等价于下面
+```javascript
+  var a={}
+  Object.defineProperty(a,'b',{
+    value:123,
+    enumerable:false,
+    configurable:false,
+    writable:false
+    })
+    console.log(a.b)
+    a.b=3;
+    console.log(a.b) //a.b=123
+```
+
+这个configurable 是总开关一旦设置上，第二次设置一点用没有
+writable设置为fasle 为只读
+enumerable定义对象的属性是否可以被枚举
+
+在descriptor中不能设置访问器(get和set)和writable或value，否则会报错，就是说想用get和set，就不能用writable或value中的任何一个。<br>
+set和get是干啥用的。
+```javascript
+    var a={}
+    Object.defineProperty(a,'b',{
+        set:function(newValue){
+          console.log("你要赋值给我的新值"+newValue)
+        },
+        get:function(){
+          console.log("你要取我的值")
+          return 2; //我也可以硬性的设置
+        }
+      })
+```
+下面根据vue简单实现一个$watch，就是利用set和get。我们将要observe的对象，通过递归将他所有的属性，包括子属性的属性，都给加上set，get。这样的话，给这个对象的某个属性值赋值，就会触发set。
+
+```javascript
+    export default class Observe{
+      constructor(value){
+        this.value=value;
+        this.walk(value)
+      },
+      walk(value){
+        Object.keys(value).forEach(key=>this.covert(key,value[key]))
+      },
+      convert(key,val){
+        defineReactive(this.value,key,val)
+      } 
+
+    }
+
+    export function defineReactive (obj,key,val){
+      var childOb = observe(val)
+      Object.defineProperty(obj,key,{
+         enumerable: true,
+         configurable: true,
+         get: ()=>val,
+         set:newVal=> { 
+              childOb = observe(newVal)//如果新赋值的值是个复杂类型。再递归它，加上set/get。。
+         }
+
+        })
+    }
+    
+  export function observe (value, vm) {
+   if (!value || typeof value !== 'object') {
+   return
+   }
+   return new Observer(value)
+  }
+
+
+    
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
