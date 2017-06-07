@@ -202,6 +202,8 @@ enumerable定义对象的属性是否可以被枚举
 
 在descriptor中不能设置访问器(get和set)和writable或value，否则会报错，就是说想用get和set，就不能用writable或value中的任何一个。<br>
 set和get是干啥用的。
+
+
 ```javascript
     var a={}
     Object.defineProperty(a,'b',{
@@ -217,6 +219,7 @@ set和get是干啥用的。
 下面根据vue简单实现一个$watch，就是利用set和get。我们将要observe的对象，通过递归将他所有的属性，包括子属性的属性，都给加上set，get。这样的话，给这个对象的某个属性值赋值，就会触发set。
 
 ```javascript
+//详情代码请看 observe.js
     export default class Observe{
       constructor(value){
         this.value=value;
