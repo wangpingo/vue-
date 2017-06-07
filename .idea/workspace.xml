@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="139f7250-9b27-4ae2-b5f3-02d9bcb0a5a4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/observe.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,32 +21,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="328">
-                <caret line="147" column="23" lean-forward="true" selection-start-line="147" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
-                <folding>
-                  <marker date="1496713580310" expanded="true" signature="1293:1443" ph="{&quot;tag&quot;: 'ul'...}" />
-                  <marker date="1496713580310" expanded="true" signature="1390:1433" ph="{...}" />
-                  <marker date="1496713580310" expanded="true" signature="1666:2062" ph="{&quot;el&quot;: '##app'...}" />
-                  <marker date="1496713580310" expanded="true" signature="1710:1798" ph="{...}" />
-                  <marker date="1496713580310" expanded="true" signature="1710:2052" ph="{...}" />
-                  <marker date="1496713580310" expanded="true" signature="1731:1797" ph="{...}" />
-                  <marker date="1496713580310" expanded="true" signature="1821:2039" ph="{...}" />
-                  <marker date="1496713580310" expanded="true" signature="1894:2028" ph="{...}" />
-                  <marker date="1496713580310" expanded="true" signature="2130:2184" ph="..." />
-                  <marker date="1496713580310" expanded="true" signature="4268:4302" ph="..." />
-                  <marker date="1496713580310" expanded="true" signature="4412:4440" ph="..." />
-                </folding>
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="observe.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/observe.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -59,6 +52,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/observer.js" />
+        <option value="$PROJECT_DIR$/observe.js" />
       </list>
     </option>
   </component>
@@ -95,7 +90,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -110,6 +104,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -123,11 +118,33 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.observe.js">
+    <configuration default="false" name="observe.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="observe.js" working-dir="$PROJECT_DIR$">
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
@@ -183,6 +200,14 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.observe.js" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.observe.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -199,6 +224,10 @@
       <workItem from="1496566917610" duration="128000" />
       <workItem from="1496645555367" duration="9878000" />
       <workItem from="1496706964416" duration="5685000" />
+      <workItem from="1496755685696" duration="531000" />
+      <workItem from="1496758527337" duration="152000" />
+      <workItem from="1496758746834" duration="2961000" />
+      <workItem from="1496848040501" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="创建 学习环境">
       <created>1496552299827</created>
@@ -253,28 +282,28 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28265000" />
+    <option name="totallyTimeSpent" value="31916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1370" height="744" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.066816814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.034534536" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49836066" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -313,118 +342,34 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <marker date="1496713580310" expanded="true" signature="1293:1443" ph="{&quot;tag&quot;: 'ul'...}" />
-              <marker date="1496713580310" expanded="true" signature="1390:1433" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1666:2062" ph="{&quot;el&quot;: '##app'...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:1798" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:2052" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1731:1797" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1821:2039" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1894:2028" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="2130:2184" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4268:4302" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4412:4440" ph="..." />
-            </folding>
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/observe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <marker date="1496713580310" expanded="true" signature="1293:1443" ph="{&quot;tag&quot;: 'ul'...}" />
-              <marker date="1496713580310" expanded="true" signature="1390:1433" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1666:2062" ph="{&quot;el&quot;: '##app'...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:1798" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:2052" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1731:1797" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1821:2039" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1894:2028" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="2130:2184" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4268:4302" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4412:4440" ph="..." />
-            </folding>
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/observe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <marker date="1496713580310" expanded="true" signature="1293:1443" ph="{&quot;tag&quot;: 'ul'...}" />
-              <marker date="1496713580310" expanded="true" signature="1390:1433" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1666:2062" ph="{&quot;el&quot;: '##app'...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:1798" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:2052" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1731:1797" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1821:2039" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1894:2028" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="2130:2184" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4268:4302" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4412:4440" ph="..." />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding>
-              <marker date="1496713580310" expanded="true" signature="1293:1443" ph="{&quot;tag&quot;: 'ul'...}" />
-              <marker date="1496713580310" expanded="true" signature="1390:1433" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1666:2062" ph="{&quot;el&quot;: '##app'...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:1798" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:2052" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1731:1797" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1821:2039" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1894:2028" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="2130:2184" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4268:4302" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4412:4440" ph="..." />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="328">
-            <caret line="147" column="23" lean-forward="true" selection-start-line="147" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
-            <folding>
-              <marker date="1496713580310" expanded="true" signature="1293:1443" ph="{&quot;tag&quot;: 'ul'...}" />
-              <marker date="1496713580310" expanded="true" signature="1390:1433" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1666:2062" ph="{&quot;el&quot;: '##app'...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:1798" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1710:2052" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1731:1797" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1821:2039" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="1894:2028" ph="{...}" />
-              <marker date="1496713580310" expanded="true" signature="2130:2184" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4268:4302" ph="..." />
-              <marker date="1496713580310" expanded="true" signature="4412:4440" ph="..." />
-            </folding>
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/observer.js" />
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/observer.js" />
+    <entry file="file://$PROJECT_DIR$/observe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
