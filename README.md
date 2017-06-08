@@ -2,7 +2,7 @@
 ### 本人能力有限，尽自己最大努力去看
 #### 第一天 
 ##### &nbsp; &nbsp;vue文档非常的详细，参考vue Api书写业务代码只是板砖而已对自己没多大提高，想要提高自己就要学习好js，通过学习源码来提升自己的js能力。<br/>&nbsp;&nbsp;第二点我发现前端框架层出不穷，目前主流的框架有angular，react，vue等等，但是大体殊途同归，随意迫切希望利用学习vue源码来追根溯源，理解一下底层如何实现的。
-##### &nbsp;&nbsp; 通过我的了解现对vue2.0 的新特性做一些简单的介绍
+##### &nbsp;&nbsp; 通过我的了解现对 vue2.0 的新特性做一些简单的介绍
 * _大小&&性能_ vue2.0的线上压缩包gzip后只有12k，而1.0需要22kb，react需要44kb。而且，vue2.0的性能在目前主流框架里面是最快的
 * _VDOM_。实现Virtual DOM，并将静态子树进行提取，减少页面重绘对比，与1.0对比性能有明显提升
 0. _virtual Dom 关键字解释_：virtual Dom 作为React的核心技术之一，一直有着神秘的面纱  
@@ -257,12 +257,71 @@ set和get是干啥用的。
 
     
 ```
+#### 第四天
 
+首先回顾一下第三天的内容，有的读者对于export和export defalut不太清楚
+es6中，export和export default均可以导出常量函数，文件，和模块，你可以
+在其他文件中或模块中通过import（常量|函数文件|模块）名的方式导入，在一个文
+件中export可以有多个，export default确只有一个
+```javascript
+    //导出方式是这个
+    export const str='hello world'
+    export function f(a) {
+      return a+1
+    }
+    //导入方式
+    import {str,f} from 'demo1'  //导入的时候带花括号
+```
+```javascript
+    export default const str='hello world'
+    
+    import  str from 'demo2'  // 导入不带花括号...
+```
 
+第三天写的代码主要是observe，其主要功能就是给一个属性添加get/set函数
+这样的话，这个对象的任意一个属性赋值都会触发set函数.但是仅仅通过这个是
+不能实现watch的监听的。我们应该写一个消息-订阅器。一触发set方法，就发出
+一个通知，然后订阅这个消息。
+why? 什么叫消息-订阅器  订阅明白吗？订阅就是我到一家卖报纸的地方告诉老板，
+“老板你加我微信，你家有新报纸的话第一时间通知我，我决定要不要买”
 
-
-
-
+很简单,我们维护一个数组,这个数组，就放订阅着，一旦触发notify，订阅者就调用
+自己的方法
+```javascript
+    export default class Dep{
+        constructor(){
+            this.subs=[]
+        }
+        addSub(sub){
+            this.subs.push(sub)
+        }
+        notify(){
+            this.subs.forEach(sub=>sub.update())
+        }
+    }
+```
+所以每次set函数的时候，我们应该触发notify。
+```javascript
+    export function defineReactive(obj,key,val) {
+      var dep=new Dep()
+      var childOb = observer(val)
+      Object.defineProperty(obj,key,{
+          enumerable:true,
+          configurable:true,
+          get: () =>val,
+          set:newVal=>{
+              var value=val
+              if(newVal===value){
+                  return
+              }
+              childOb = observer(newVal)
+              dep.notify()
+          }
+      })
+    }
+```
+那么问题来了。谁是订阅者。对，是Watcher。一旦 dep.notify()就遍历订阅者，
+也就是Watcher，并调用他的update()方法
 
 
 
