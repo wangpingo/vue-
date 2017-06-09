@@ -370,7 +370,7 @@ export default class Watcher {
 ```
 #### 第五天
 
-##### 今天遇到了一个问题
+##### 今天讲watcher的实现，但是我在看后续的compiler遇到了一个问题
 为什么用Object.prototype.toString.call(obj)检测对象类型?
 这是一个十分常见的问题，用 typeof 是否能准确判断一个对象变量，
 答案是否定的，null 的结果也是 object，Array 的结果也是 object，
@@ -417,8 +417,53 @@ console.log("数组的新值：" + arr2 );
 <h4>局限性</h4>
 使用slice和concat对对象数组的拷贝，整个拷贝还是浅拷贝，拷贝之后数组各个值的指针还是指向相同的存储地址。
 
+<h4>这里补充一下import和require的区别</h4>
+写个简单的文件，假设名字是lib.js。假设内容如下
+```javascript
+export const sqrt = Math.sqrt;
+export function square(x) {
+    return x * x;
+}
+export function diag(x, y) {
+    return sqrt(square(x) + square(y));
+}
+```
+这样在其他方式上有两种引用方法，也就是import和require
+```javascript
+import {squire,diag} from 'lib'
+console.log(square(11)); // 121
+console.log(diag(4, 3));
 
+import * as lib from 'lib';
+square = lib.square;
+```
+还可以设置默认的导出信息，就需要崽lib.js中定义 
+export default {}。default后面可以接一个参数，也可以接一个数组。书写方法为：
 
+通常比较习惯用第一种。然后用import就可以得到这个数组或则参数。但是import只能
+用于静态导入，就是必须在文件开始的时候，在最上层就写好。而require就可以实现动态加载。
+
+import是静态引入在文件最开始的地方，require是动态加载
+
+运行时加载  非语言层面标准，运行时确立静态关系
+编译时加载  语言层面标准，支持编译时静态分析
+#### 看到这里 X的 无比的烦，突然发现export和module.exports也是不太明白的
+
+我非常熟悉nodejs模块中的exports对象
+```javascript
+//aa.js
+export function aa() {
+  ....
+}
+//把aa方法暴露出去
+// 另一个文件引入
+var aa=require('./a.js')
+aa.aa()  //故意迷惑你哈哈
+```
+上面就是我们经常用的exports,但是node里面甚少用module.exports，
+因为exports是module.exports的老弟，exports引用的module.exports
+所以他才是老大，你要把module.exports这个老大重新赋值了，那么它的小弟
+肯定找不到....
 
 
 
