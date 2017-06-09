@@ -323,15 +323,99 @@ why? 什么叫消息-订阅器  订阅明白吗？订阅就是我到一家卖报
 那么问题来了。谁是订阅者。对，是Watcher。一旦 dep.notify()就遍历订阅者，
 也就是Watcher，并调用他的update()方法
 
+#### 实现一个Watcher
+我们想象这个Watcher，应该用什么东西。update方法，嗯这个毋庸置疑，还有呢。
+```javascript
+export default class Watcher {
+ constructor(vm, expOrFn, cb) {
+ this.cb = cb
+ this.vm = vm
+ //此处简化.要区分fuction还是expression,只考虑最简单的expression
+ this.expOrFn = expOrFn
+ this.value = this.get()
+ }
+ update(){
+ this.run()
+ }
+ run(){
+ const value = this.get()
+ if(value !==this.value){
+ this.value = value
+ this.cb.call(this.vm)
+ }
+ }
+ get(){
+ //此处简化。。要区分fuction还是expression
+ const value = this.vm._data[this.expOrFn]
+ return value
+ }
+}
 
+```
+那么问题来了，我们怎样将通过addSub(),将Watcher加进去呢。
+ 我们发现var dep = new Dep() 处于闭包当中，我们又发现Watcher的构造函数里会调用this.get，所以，我们可以在上面动动手脚，修改一下Object.defineProperty的get要调用的函数，判断是不是Watcher的构造函数调用，如果是，说明他就是这个属性的订阅者，果断将他addSub()中去，那问题来了？
+ 我怎样判断他是Watcher的this.get调用的，而不是我们普通调用的呢。
+ ```javascript
+export default class Watcher {
+ ....省略未改动代码....
+ get(){
+ Dep.target = this
+ //此处简化。。要区分fuction还是expression
+ const value = this.vm._data[this.expOrFn]
+ Dep.target = null
+ return value
+ }
+}
 
+```
+#### 第五天
 
+##### 今天遇到了一个问题
+为什么用Object.prototype.toString.call(obj)检测对象类型?
+这是一个十分常见的问题，用 typeof 是否能准确判断一个对象变量，
+答案是否定的，null 的结果也是 object，Array 的结果也是 object，
+有时候我们需要的是 "纯粹" 的 object 对象。如何避免呢？比较好的方式是：
+```javascript
 
+//调用的是obj自己的方法
 
+console.log(Object.prototype.toString.call(obj) === "[object Array]");
 
+//调用的是对象的原型方法,vue用的是这个思想
 
+console.log(Object.prototype.toString(obj) === "[object Object]");
+```
+#### 第六天 
 
+<h4>这里补充一下，使用slice和concat对数组实现浅拷贝和深拷贝</h4>
+因为以后的compiler更新Dom 都是通过数组拷贝一个nodes节点进行
+实现数组的浅拷贝和深拷贝
+##### 数组深拷贝方法
+对于array对象的slice函数，返回一个数组的一段。（仍为数组）
+arrayObj.slice(start, [end])
 
+参数：
+arrayObj 必选项。一个 Array 对象。
+start 必选项。arrayObj 中所指定的部分的开始元素是从零开始计算的下标。
+end可选项。arrayObj 中所指定的部分的结束元素是从零开始计算的下标。
+```javascript
+var arr1 = ["1","2","3"];
+var arr2 = arr1.slice(0);
+arr2[1] = "9";
+console.log("数组的原始值：" + arr1 );
+console.log("数组的新值：" + arr2 );
+```
+##### js的concat方法
+
+```javascript
+var arr1 = ["1","2","3"];
+var arr2 = arr1.concat();
+arr2[1] = "9";
+console.log("数组的原始值：" + arr1 );
+console.log("数组的新值：" + arr2 );
+```
+<h4>局限性</h4>
+使用slice和concat对对象数组的拷贝，整个拷贝还是浅拷贝，拷贝之后数组各个值的指针还是指向相同的存储地址。
 
 
 
