@@ -20,20 +20,7 @@
     <p><button type="button" v-on:click="clickBtn(message)">click me</button></p>
 </div>
 <script>
-//    var vm = new Vue({
-//        el:"#msg",
-//        data:{
-//            b:{
-//                c:1
-//            },
-//            message:"hello world"
-//        },
-//        methods:{
-//            clickBtn:function(message){
-//                vm.message = "clicked";
-//            }
-//        }
-//    });
+
 
         var mvvm = new MVVM({
             el:"msg",
@@ -41,8 +28,7 @@
                 b:{
                     c:1
                 },
-                message:"hello world!",
-                aa:'./hscha.jpg'
+                message:"hello world!"
             },
             methods:{
                 clickBtn:function(message){
