@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="139f7250-9b27-4ae2-b5f3-02d9bcb0a5a4" name="Default" comment="">
+    <list default="true" id="139f7250-9b27-4ae2-b5f3-02d9bcb0a5a4" name="Default" comment="深入学习 vue">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -84,8 +84,8 @@
         <entry file="file://$PROJECT_DIR$/vue/demo/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="342">
-                <caret line="366" column="40" lean-forward="false" selection-start-line="366" selection-start-column="40" selection-end-line="366" selection-end-column="40" />
+              <first_editor relative-caret-position="174">
+                <caret line="360" column="6" lean-forward="true" selection-start-line="360" selection-start-column="6" selection-end-line="360" selection-end-column="6" />
                 <folding>
                   <marker date="1497083400408" expanded="true" signature="3027:3094" ph="//..." />
                   <marker date="1497083400408" expanded="true" signature="3706:3768" ph="//..." />
@@ -474,7 +474,7 @@
       <workItem from="1496848399540" duration="9024000" />
       <workItem from="1496901902223" duration="33686000" />
       <workItem from="1497020639780" duration="306000" />
-      <workItem from="1497076006021" duration="7510000" />
+      <workItem from="1497076006021" duration="7720000" />
     </task>
     <task id="LOCAL-00001" summary="创建 学习环境">
       <created>1496552299827</created>
@@ -581,17 +581,23 @@
       <option name="project" value="LOCAL" />
       <updated>1497083535380</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="深入学习 vue">
+      <created>1497083593425</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1497083593425</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82510000" />
+    <option name="totallyTimeSpent" value="82720000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12162162" sideWeight="0.6983607" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19294295" sideWeight="0.6983607" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -938,8 +944,8 @@
     <entry file="file://$PROJECT_DIR$/vue/demo/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="342">
-            <caret line="366" column="40" lean-forward="false" selection-start-line="366" selection-start-column="40" selection-end-line="366" selection-end-column="40" />
+          <first_editor relative-caret-position="174">
+            <caret line="360" column="6" lean-forward="true" selection-start-line="360" selection-start-column="6" selection-end-line="360" selection-end-column="6" />
             <folding>
               <marker date="1497083400408" expanded="true" signature="3027:3094" ph="//..." />
               <marker date="1497083400408" expanded="true" signature="3706:3768" ph="//..." />
